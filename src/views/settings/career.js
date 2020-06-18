@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx, Container, Label, Flex, Heading, Input, Button, Styled } from 'theme-ui'
-import NavBar from '../components/color-picker/ColorPicker.js'
+import NavBar from '../../components/color-picker/ColorPicker.js'
 
 const Home = () => <Container
     p={4}
-    bg='highlight'
 >
+    <h1>Career Settings</h1>
 </Container>
 
 export default Home;

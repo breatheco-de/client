@@ -6,6 +6,8 @@ import Menu from "../components/menu/top"
 const Home = loadable(() => import('../views/home'))
 const Login = loadable(() => import('../views/login'))
 const SettingsMenu = loadable(() => import('../components/menu/settings'))
+const CareerSettings = loadable(() => import('../views/settings/career'))
+const ProfileSettings = loadable(() => import('../views/settings/profile'))
 
 const NavbarLayout = ({children}) => <div>
     <Menu />
@@ -21,7 +23,8 @@ const Layout = () => <div>
         <NavbarLayout path="/">
             <Home path="/dashboard" />
             <SettingsMenu path="settings">
-                <Home path="profile" />
+                <ProfileSettings path="profile" />
+                <CareerSettings path="career" />
             </SettingsMenu>
         </NavbarLayout>
         <NotFound default />

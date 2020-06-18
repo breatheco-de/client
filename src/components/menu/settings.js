@@ -2,21 +2,17 @@ import React from "react"
 import { navigate } from "@reach/router"
 import { Container, Grid, Flex, Box, NavLink, Label } from 'theme-ui'
 import Icon from '../icon'
-
-const MenuNav = ({ icon, label, to }) => <NavLink onClick={() => navigate(to)} p={1}
-    sx={{ '&:hover': {
-        bg: 'light'
-    }}}
->
-    <Flex><Box mr={3}><Icon name={icon} /></Box><Label sx={{ width: '100%',  cursor: 'pointer' }}>{label}</Label></Flex>
-</NavLink>
+import LeftNavLink from './leftnavlink'
 
 const Menu = ({ children }) => <Flex columns={[ 2 ]}>
-    <Grid columns={[ 1 ]}>
-        <MenuNav icon="home" label="Home" to="/dashboard" />
-        <MenuNav icon="collaboration" label="Community" to="/community" />
-        <MenuNav icon="academy" label="Academy" to="/courses" />
-    </Grid>
+    <Flex sx={{
+        flexDirection: 'column',
+        width: "200px",
+    }} >
+        <LeftNavLink icon="profile" label="Profile" to="/settings/profile" />
+        <LeftNavLink icon="briefcase" label="Career" to="/settings/career" />
+        <LeftNavLink icon="academy" label="Academy" to="/courses" />
+    </Flex>
     <Container>
         {children}
     </Container>

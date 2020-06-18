@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from 'prop-types'
 import { IconContext } from "react-icons"
 import { IoLogoGithub } from "react-icons/io"
-import { FcCollaboration, FcHome, FcGraduationCap, FcSettings } from "react-icons/fc"
+import { FcCollaboration, FcHome, FcGraduationCap, FcSettings, FcBriefcase, FcButtingIn } from "react-icons/fc"
 
 const icons = {
     'github': IoLogoGithub,
@@ -10,9 +10,12 @@ const icons = {
     'home': FcHome,
     'academy': FcGraduationCap,
     'settings': FcSettings,
+    'profile': FcButtingIn,
+    'briefcase': FcBriefcase,
 }
 const sizes = {
-    medium: '130%'
+    md: '130%',
+    lg: '200%'
 }
 const Icon = ({ name, size }) => {
     //only the specific icons
@@ -30,7 +33,7 @@ Icon.propTypes = {
   name: PropTypes.string,
 };
 Icon.defaultProps = {
-   size: 'medium',
+   size: 'md',
    name: null,
 };
 export default Icon
