@@ -11,8 +11,7 @@ const Home = () => <Box
     alignItems: 'center',
   }}>
   <Heading>
-    Components
-    <Styled.h1>Theme UI + Create React App</Styled.h1>
+    You are in
   </Heading>
   <NavBar />
 </Flex>

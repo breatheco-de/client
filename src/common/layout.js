@@ -1,16 +1,30 @@
 import React from "react"
-import { Router } from "@reach/router"
+import { Router, Redirect } from "@reach/router"
 import loadable from '@loadable/component'
-import Menu from "../components/menu/menu"
+import Menu from "../components/menu/top"
 
 const Home = loadable(() => import('../views/home'))
 const Login = loadable(() => import('../views/login'))
+const SettingsMenu = loadable(() => import('../components/menu/settings'))
+
+const NavbarLayout = ({children}) => <div>
+    <Menu />
+    {children}
+</div>
+
+const NotFound = () => <p>Sorry, nothing here</p>
 
 const Layout = () => <div>
-    <Menu />
     <Router>
-        <Home path="/" />
+        <Redirect from="/" to="login" />
         <Login path="/login" />
+        <NavbarLayout path="/">
+            <Home path="/dashboard" />
+            <SettingsMenu path="settings">
+                <Home path="profile" />
+            </SettingsMenu>
+        </NavbarLayout>
+        <NotFound default />
     </Router>
 </div>
 export default Layout
