@@ -4,7 +4,7 @@ import { Container, Grid, Flex, Box, NavLink, Label } from 'theme-ui'
 import Icon from '../icon'
 import LeftNavLink from './leftnavlink'
 
-const Menu = ({ children }) => <Flex columns={[ 2 ]}>
+const Menu = ({ children }) => <Flex columns={[ 2 ]} sx={{ width: [ "100%", "100%", "1000px" ], margin: "auto" }}>
     <Flex sx={{
         flexDirection: 'column',
         width: "200px",

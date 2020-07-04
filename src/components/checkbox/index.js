@@ -1,8 +1,6 @@
 import React from "react"
-import styled from 'styled-components';
-import { useThemeUI, Button, Flex, Box, Checkbox, Styled } from 'theme-ui'
-
-
+import styled from 'styled-components'
+import PropTypes from "prop-types"
 
 const Wrapper = styled.div``
 const CheckBoxWrapper = styled.div`
@@ -29,7 +27,7 @@ const CheckBoxLabel = styled.label`
     transition: 0.2s;
   }
 `;
-const CheckBox = styled.input`
+const StyledCheckBox = styled.input`
   opacity: 0;
   z-index: 1;
   border-radius: 15px;
@@ -49,13 +47,21 @@ const CheckBox = styled.input`
   }
 `
 
-const ColorPicker = ({ style }) => {
-    const { colorMode, setColorMode } = useThemeUI()
+const Checkbox = ({ style, checked, onChange }) => {
+    
     return <Wrapper style={style}>
         <CheckBoxWrapper>
-            <CheckBox  id="checkbox" type="checkbox" onChange={() => setColorMode(colorMode === 'dark' ? 'light':'dark')} />
+            <StyledCheckBox  id="checkbox" type="checkbox" onChange={() => onChange && onChange(!checked)} />
             <CheckBoxLabel htmlFor="checkbox" />
         </CheckBoxWrapper>
     </Wrapper>
 }
-export default ColorPicker
+Checkbox.propTypes = {
+    checked: PropTypes.bool,
+    onChange: PropTypes.func
+}
+Checkbox.defaultTypes = {
+    checked: false,
+    onChange: null
+}
+export default Checkbox

@@ -16,10 +16,11 @@ const app = document.querySelector('#root');
 let query = queryString.parse(window.location.search);
 
 //if token comes in the URL we have to login with that token;
-if(typeof query.token != 'undefined') 
+console.log("Query", query)
+if(query && typeof query.token != 'undefined') 
     autoLogin(query.token)
         .then(() => { ReactDOM.render(<Config />,app); })
-        .catch(() => { ReactDOM.render(<h1>Invalid Credentials</h1>,app); });
+        .catch(() => { ReactDOM.render(<h1>Invalid Credentials, <a href="/login">click here to login</a></h1>,app); });
 
 //else normal rendering
 else ReactDOM.render(<Config />,app);

@@ -1,68 +1,42 @@
 /** @jsx jsx */
-import { jsx, Container, Label, Flex, Box, Checkbox, Button, Select, Input, Textarea, Radio, Slider } from 'theme-ui'
+import { jsx, Text, Label, Flex, Box, Button, Input, Textarea, useThemeUI } from 'theme-ui'
 import PanelView from '../../components/panel-view'
+import { useForm } from "react-hook-form"
+import Checkbox from '../../components/checkbox'
 
-const Home = () => <PanelView heading="Profile Settings">
-    
-    <Box
-    as='form'
-    onSubmit={e => e.preventDefault()}>
-        <Flex mb={3}>
-            <Box>
-                <Label htmlFor='first_name'>First Name</Label>
-                <Input name='first_name' id='first_name' />
-            </Box>
-            <Box ml={3}>
-                <Label htmlFor='last_name'>Last Name</Label>
-                <Input name='last_name' id='last_name' />
-            </Box>
-        </Flex>
-    <Label htmlFor='password'>Password</Label>
-    <Input
-        type='password'
-        name='password'
-        id='password'
-        mb={3}
-    />
-    <Box>
-        <Label mb={3}>
-        <Checkbox />
-        Remember me
-        </Label>
-    </Box>
-    <Label htmlFor='sound'>Sound</Label>
-    <Select name='sound' id='sound' mb={3}>
-        <option>Beep</option>
-        <option>Boop</option>
-        <option>Blip</option>
-    </Select>
-    <Label htmlFor='comment'>Comment</Label>
-    <Textarea
-        name='comment'
-        id='comment'
-        rows='6'
-        mb={3}
-    />
-    <Flex mb={3}>
-        <Label>
-        <Radio name='letter' /> Alpha
-        </Label>
-        <Label>
-        <Radio name='letter' /> Bravo
-        </Label>
-        <Label>
-        <Radio name='letter' /> Charlie
-        </Label>
-    </Flex>
-    <Label>
-        Slider
-    </Label>
-    <Slider mb={3} />
-    <Button>
-        Submit
-    </Button>
-    </Box>
+const Profile = () => {
+    const { register, handleSubmit, watch, errors } = useForm();
+    const { colorMode, setColorMode } = useThemeUI()
+    const onSubmit = data => console.log("Form submited",data);
 
-</PanelView>
+    return <PanelView heading="Profile Settings">
+        <Box
+        as='form'
+        onSubmit={handleSubmit(onSubmit)}>
+            <Flex mb={3}>
+                <Box>
+                    <Label htmlFor='first_name'>First Name</Label>
+                    <Input name='first_name' id='first_name' ref={register({ required: true })} />
+                    {errors.first_name && <Text color="danger">This field is required</Text>}
+                </Box>
+                <Box ml={3}>
+                    <Label htmlFor='last_name'>Last Name</Label>
+                    <Input name='last_name' id='last_name' ref={register({ required: true })} />
+                    {errors.last_name && <Text color="danger">This field is required</Text>}
+                </Box>
+            </Flex>
+            <Label htmlFor='comment'>About you (100 words to describe yourself)</Label>
+            <Textarea  ref={register({ required: true })}
+                name='comment'
+                id='comment'
+                rows='2'
+            />
+            {errors.comment && <Text color="danger">This field is required</Text>}
+            <Button mt={3}>Save</Button>
+            <Label htmlFor='comment'>Enable dark mode</Label>
+            <Checkbox onChange={() => setColorMode(colorMode === "light" ? "dark":"light")} />
+        </Box>
+    </PanelView>
+}
 
-export default Home;
+export default Profile;

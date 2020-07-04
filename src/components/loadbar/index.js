@@ -48,7 +48,7 @@ class NotificationStore extends EventEmitter{
         super();
         this.loading = false;
         dispatcher.register((status) => {
-            this.loading = (status == "loading" || status === true);
+            this.loading = (status === "loading" || status === true);
             this.emit(NOTIFICATIONS_EVENT, this.loading);
         });
     }

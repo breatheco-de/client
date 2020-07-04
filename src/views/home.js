@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Box, Label, Flex, Heading, Input, Button, Styled } from 'theme-ui'
-import NavBar from '../components/color-picker/ColorPicker.js'
+
 
 const Home = () => <Box
     p={4}
@@ -13,7 +13,6 @@ const Home = () => <Box
   <Heading>
     You are in
   </Heading>
-  <NavBar />
 </Flex>
 </Box>
 

@@ -4,7 +4,7 @@ import { IconContext } from "react-icons"
 import { IoLogoGithub } from "react-icons/io"
 import { FcCollaboration, FcHome, FcGraduationCap, FcSettings, FcBriefcase, FcButtingIn } from "react-icons/fc"
 
-const icons = {
+export const icons = {
     'github': IoLogoGithub,
     'collaboration': FcCollaboration,
     'home': FcHome,
@@ -13,11 +13,12 @@ const icons = {
     'profile': FcButtingIn,
     'briefcase': FcBriefcase,
 }
-const sizes = {
+export const sizes = {
     md: '130%',
     lg: '200%'
 }
 const Icon = ({ name, size }) => {
+
     //only the specific icons
     if(icons[name] === undefined) return "?";
 

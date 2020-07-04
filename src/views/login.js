@@ -4,7 +4,6 @@ import { redirectTo } from "@reach/router"
 import * as queryString from 'query-string'
 import Icon from '../components/icon'
 import { autoLogin } from "../common/actions"
-import NavBar from '../components/color-picker/ColorPicker.js'
 import { useEffect } from 'react'
 import { Session } from 'bc-react-session'
 

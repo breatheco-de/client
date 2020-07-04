@@ -1,10 +1,16 @@
 import React from "react"
-import { navigate, Link } from "@reach/router"
-import { Button, Grid, Flex, Box, Label, Image } from 'theme-ui'
+import { Link } from "@reach/router"
+import { Grid, Flex, Box, Label, Image } from 'theme-ui'
 import Icon from '../icon'
 import logoURL from '../../assets/logo.png'
 
-const Menu = () => <Grid gap={2} columns={[ 1, 3 ]}>
+const Menu = () => <Grid gap={2} columns={[ 1, 3 ]}
+    sx={{
+        bg: 'grey100',
+        borderBottom: '1px solid',
+        borderColor: 'grey200'
+    }}
+>
     <Box sx={{ display: ['none', 'flex'] }} p={2}>
         <Image
             sx={{

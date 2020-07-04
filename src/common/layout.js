@@ -8,6 +8,7 @@ const Login = loadable(() => import('../views/login'))
 const SettingsMenu = loadable(() => import('../components/menu/settings'))
 const CareerSettings = loadable(() => import('../views/settings/career'))
 const ProfileSettings = loadable(() => import('../views/settings/profile'))
+const MyCourses = loadable(() => import('../views/courses/mycourses'))
 
 const NavbarLayout = ({children}) => <div>
     <Menu />
@@ -26,6 +27,7 @@ const Layout = () => <div>
                 <ProfileSettings path="profile" />
                 <CareerSettings path="career" />
             </SettingsMenu>
+            <MyCourses path="/courses" />
         </NavbarLayout>
         <NotFound default />
     </Router>

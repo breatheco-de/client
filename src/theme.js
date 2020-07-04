@@ -10,21 +10,29 @@ const theme = merge(toTheme(_theme), {
       secondary: '#33e',
       modes: {
         dark: {
-          text: '#fff',
-          background: '#000',
-          primary: '#0cf',
-          light: '#424242',
+            text: '#fff',
+            background: '#000',
+            primary: '#0cf',
+            danger: '#b55d3e',
+            grey200: '#eeeeee',
+            grey100: '#424242',
         },
         light: {
-          text: '#4a4a4a',
-          background: '#FFFF',
-          primary: '#0cf',
-          light: '#ededed',
+            text: '#4a4a4a',
+            background: '#FFFF',
+            danger: '#b55d3e',
+            primary: '#0cf',
+            grey200: '#eeeeee',
+            grey100: '#fafafa',
         }
       },
-      styles: {
-        h1: {
-            color: 'primary',
+    },
+    styles: {
+        root:{
+            h1: {
+                fontSize: 24,
+                color: 'text',
+            },
         },
         a: {
             color: 'primary',
@@ -36,7 +44,6 @@ const theme = merge(toTheme(_theme), {
                 bg: 'secondary',
             }
         }
-      }
     }
 })
 export default theme
