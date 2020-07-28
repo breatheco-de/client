@@ -19,7 +19,6 @@ const NotFound = () => <p>Sorry, nothing here</p>
 
 const Layout = () => <div>
     <Router>
-        <Redirect from="/" to="login" />
         <Login path="/login" />
         <NavbarLayout path="/">
             <Home path="/dashboard" />

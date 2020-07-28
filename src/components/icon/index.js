@@ -17,13 +17,13 @@ export const sizes = {
     md: '130%',
     lg: '200%'
 }
-const Icon = ({ name, size }) => {
+const Icon = ({ name, size, color }) => {
 
     //only the specific icons
     if(icons[name] === undefined) return "?";
 
     const TheIcon = icons[name]
-    return <IconContext.Provider value={{ color: "blue", className: "global-class-name" }}>
+    return <IconContext.Provider value={{ color, className: "global-class-name" }}>
     <div>
         <TheIcon style={{ fontSize: sizes[size] }}  />
     </div>
@@ -32,9 +32,11 @@ const Icon = ({ name, size }) => {
 Icon.propTypes = {
   size: PropTypes.string,
   name: PropTypes.string,
+  color: PropTypes.string,
 };
 Icon.defaultProps = {
    size: 'md',
    name: null,
+   color: 'blue',
 };
 export default Icon

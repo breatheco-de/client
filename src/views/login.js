@@ -9,8 +9,8 @@ import { Session } from 'bc-react-session'
 
 const Login = ({ location }) => {
     useEffect(() => {
-        const session = Session.get()
-        if(session.isValid) redirectTo('/dashboard')
+        const session = Session.get('breathecode-session')
+        if(session && session.isValid) redirectTo('/dashboard')
     },[])
     return <Flex
             sx={{
@@ -31,7 +31,7 @@ const Login = ({ location }) => {
                 window.location.href = `${process.env.REACT_APP_GITHUB_LOGIN}?url=${btoa(window.location.protocol+"//"+window.location.hostname+'/login')}`
             }}>
                 <Flex>
-                    <Icon name="github" />
+                    <Icon color="white" name="github" />
                     <Text sx={{ ml: "5px" }} variant='caps'>Login with Github</Text>
                 </Flex>
             </Button>

@@ -7,6 +7,7 @@ import { toTheme } from '@theme-ui/typography'
 import Layout from './common/layout';
 import { autoLogin } from './common/actions.js';
 import * as queryString from 'query-string'
+import { Session } from 'bc-react-session'
 
 const Config = () => <React.StrictMode><ThemeProvider theme={theme}><Layout /></ThemeProvider></React.StrictMode>
 
@@ -17,10 +18,15 @@ let query = queryString.parse(window.location.search);
 
 //if token comes in the URL we have to login with that token;
 console.log("Query", query)
-if(query && typeof query.token != 'undefined') 
+if(query && Object.keys(query).length > 0 && typeof query.token != 'undefined'){
     autoLogin(query.token)
         .then(() => { ReactDOM.render(<Config />,app); })
         .catch(() => { ReactDOM.render(<h1>Invalid Credentials, <a href="/login">click here to login</a></h1>,app); });
-
-//else normal rendering
-else ReactDOM.render(<Config />,app);
+}
+else{
+    const session = Session.get('breathecode-session');
+    if((!session || session.isValid !== true) && !window.location.pathname.includes("login")){
+        window.location = "/login";
+    }
+    else ReactDOM.render(<Config />,app);
+}

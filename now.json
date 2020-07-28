@@ -1,0 +1,6 @@
+{
+    "env": {
+        "REACT_APP_API_URL": "https://breathecode.herokuapp.com",
+        "REACT_APP_GITHUB_LOGIN": "https://breathecode.herokuapp.com/v1/auth/github/"
+    }
+}
