@@ -4,7 +4,7 @@ import log from './utils/log'
 import toaster from "toasted-notes"
 
 export const autoLogin = (token = '') => {
-    Session.destroy();
+    Session.destroy('breathecode-session');
 
     return new Promise((resolve, reject) => GET('auth/user/me', null, { 'Authorization': 'Token ' + token })
         .then(function (user) {
@@ -18,7 +18,7 @@ export const autoLogin = (token = '') => {
             // }
             // else {
                 const payload = { user, access_token: token };
-                Session.start({ payload });
+                Session.start('breathecode-session', { payload });
                 resolve(payload);
             // }
         })
@@ -32,7 +32,7 @@ export const autoLogin = (token = '') => {
 
 export const logout = () => {
     setTimeout(() => {
-        Session.destroy();
+        Session.destroy('breathecode-session');
         // store = new _Store();
       }, 3000);
 };
