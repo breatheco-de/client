@@ -1,20 +1,17 @@
 import React from "react"
-import { navigate } from "@reach/router"
-import { Container, Grid, Flex, Box, NavLink, Label } from 'theme-ui'
+import { Row, Col, Button } from 'react-bootstrap'
+import { Link } from "@reach/router"
 import Icon from '../icon'
-import LeftNavLink from './leftnavlink'
 
-const Menu = ({ children }) => <Flex columns={[ 2 ]} sx={{ width: [ "100%", "100%", "1000px" ], margin: "auto" }}>
-    <Flex sx={{
-        flexDirection: 'column',
-        width: "200px",
-    }} >
-        <LeftNavLink icon="profile" label="Profile" to="/settings/profile" />
-        <LeftNavLink icon="briefcase" label="Career" to="/settings/career" />
-        <LeftNavLink icon="academy" label="Academy" to="/courses" />
-    </Flex>
-    <Container>
-        {children}
-    </Container>
-</Flex>
+const LeftNavLink = ({ to, icon }) => <Link to={to} className="d-flex"><Icon name={icon} size='lg' /></Link>
+const Menu = ({ children }) => <>
+    <Row>
+        <Col>
+            <LeftNavLink icon="profile" label="Profile" to="/settings/profile" />
+            <LeftNavLink icon="briefcase" label="Career" to="/settings/career" />
+            <LeftNavLink icon="academy" label="Academy" to="/courses" />
+        </Col>
+        <Col>{children}</Col>
+    </Row>
+</>
 export default Menu

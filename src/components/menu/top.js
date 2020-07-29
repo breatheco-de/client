@@ -1,64 +1,27 @@
 import React from "react"
 import { Link } from "@reach/router"
-import { Grid, Flex, Box, Label, Image } from 'theme-ui'
+import { Navbar, Image, Nav } from "react-bootstrap"
 import Icon from '../icon'
 import logoURL from '../../assets/logo.png'
 
-const Menu = () => <Grid gap={2} columns={[ 1, 3 ]}
-    sx={{
-        bg: 'grey100',
-        borderBottom: '1px solid',
-        borderColor: 'grey200'
-    }}
->
-    <Box sx={{ display: ['none', 'flex'] }} p={2}>
-        <Image
-            sx={{
-                width: '30px',
-                height: '30px',
-            }}
-            src={logoURL}
-            variant='avatar'
-        />
-    </Box>
-    <Flex as='nav'>
-        <TopNavLink icon="home" label="Home" to="/dashboard"><Icon name="home" size='lg' /></TopNavLink>
-        <TopNavLink icon="collaboration" label="Community" to="/community"><Icon name="collaboration" size='lg' /></TopNavLink>
-        <TopNavLink icon="academy" label="Academy" to="/courses"><Icon name="academy" size='lg' /></TopNavLink>
-    </Flex>
-    <Box sx={{ display: ['none', 'flex'] }}>
-        <Label width="100%"/>
-        <TopNavLink icon="settings" label="Settings" to="/settings/profile"><Icon name="settings" size='lg' /></TopNavLink>
-    </Box>
-</Grid>
-export default Menu
+const TopLink = ({ to, icon }) => <Nav.Item className="px-3">
+    <Link to={to}>
+        <Nav.Link href={`#${to}`}><Icon name={icon} size='lg' /></Nav.Link>
+    </Link>
+</Nav.Item>
 
-const TopNavLink = ({ children, padding, to, ...rest }) => {
-    return <Box
-        {...rest}
-        sx={{
-            width: "33%",
-            textAlign: "center",
-            '&:hover': {
-                bg: 'light',
-                cursor: 'pointer'
-        }}}
-    >
-        <Link
-            to={to}
-            getProps={({ isCurrent }) => {
-                // the object returned here is passed to the
-                // anchor element's props
-                return {
-                    style: {
-                        padding: "10px 20px",
-                        display: 'block',
-                        borderBottom: isCurrent ? "3px blue solid" : "none"
-                    }
-                };
-            }}
-        >
-            {children}
-        </Link>
-    </Box>
-}
+const Menu = () => <Navbar>
+    <Navbar.Brand href="#home"><Image src={logoURL} rounded /></Navbar.Brand>
+    <Navbar.Toggle />
+    <Navbar.Collapse>
+        <Nav variant="pills" className="w-100 justify-content-center">
+            <TopLink to="home" icon="home" />
+            <TopLink to="features" icon="collaboration" />
+            <TopLink to="pricing" icon="academy" />
+        </Nav>
+        <Nav className="ml-auto">
+            <TopLink to="settings" icon="settings" />
+        </Nav>
+    </Navbar.Collapse>
+    </Navbar>
+export default Menu

@@ -1,0 +1,27 @@
+$theme-colors: (
+    "primary": #4285ff,
+);
+
+@import "~bootstrap/scss/bootstrap";
+
+@each $color, $value in $theme-colors {
+    .btn-outline-#{$color} {
+        color: $gray-800;
+        border: 0px;
+        .arrow{
+            color: map-get($theme-colors, $color)
+        }
+        &:hover{
+            .arrow{
+                color: white;
+            }
+        }
+    }
+}
+
+.shadow-one{
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
+}
+body{
+    color: $gray-800;
+}

@@ -1,5 +1,3 @@
-
-/* global localStorage, fetch */
 import { logout } from '../actions';
 import log from './log';
 import { Session } from 'bc-react-session';
@@ -19,7 +17,7 @@ let PendingReq = {
   },
   remove: function (req) {
     this._requests = this._requests.filter(r => r !== req);
-    if (this._requests.length == 0) {
+    if (this._requests.length === 0) {
       setLoading(false);
     }
   }
@@ -84,7 +82,7 @@ export const GET = async (endpoint, queryString = null, extraHeaders = {}) => {
 
 export const POST = (endpoint, postData, extraHeaders = {}) => {
 
-  if (['user/register', 'login', 'user/password/reset'].indexOf(endpoint) == -1) {
+  if (['user/register', 'login', 'user/password/reset'].indexOf(endpoint) === -1) {
     HEADERS['Authorization'] = `Token ${getToken()}`;
     postData = appendCompany(postData);
   }
@@ -136,7 +134,7 @@ export const PUTFiles = (endpoint, files) => {
 
 export const PUT = (endpoint, putData, extraHeaders = {}) => {
 
-  if (['register', 'login'].indexOf(endpoint) == -1) {
+  if (['register', 'login'].indexOf(endpoint) === -1) {
     HEADERS['Authorization'] = `Token ${getToken()}`;
   }
   const REQ = {
@@ -181,17 +179,17 @@ export const DELETE = (endpoint, extraHeaders = {}) => {
 const processResp = function (resp, req = null) {
   PendingReq.remove(req);
   if (resp.ok) {
-    if (resp.status == 204) return new Promise((resolve, reject) => resolve(true));
+    if (resp.status === 204) return new Promise((resolve, reject) => resolve(true));
     else return resp.json();
   }
   else return new Promise(function (resolve, reject) {
-    if (resp.status == 400) parseError(resp).catch((errorMsg) => reject(errorMsg));
-    else if (resp.status == 404) reject(new Error('Not found'));
-    else if (resp.status == 503) {
+    if (resp.status === 400) parseError(resp).catch((errorMsg) => reject(errorMsg));
+    else if (resp.status === 404) reject(new Error('Not found'));
+    else if (resp.status === 503) {
       logout();
       reject(new Error('The JobCore API seems to be unavailable'));
     }
-    else if (resp.status == 401) {
+    else if (resp.status === 401) {
       logout();
       reject(new Error('You are not authorized for this action'));
     }

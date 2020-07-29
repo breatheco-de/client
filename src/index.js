@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import packg from '../package.json';
-import { ThemeProvider } from 'theme-ui'
-import theme from './theme'
-import { toTheme } from '@theme-ui/typography'
+import './styles.scss';
 import Layout from './common/layout';
 import { autoLogin } from './common/actions.js';
 import * as queryString from 'query-string'
 import { Session } from 'bc-react-session'
 
-const Config = () => <React.StrictMode><ThemeProvider theme={theme}><Layout /></ThemeProvider></React.StrictMode>
+const Config = () => <Layout />
 
 console.info(`BreatheCode v${packg.version}, ENV=${process.env.REACT_APP_ENVIRONMENT}`);
 

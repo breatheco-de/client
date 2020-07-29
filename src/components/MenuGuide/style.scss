@@ -1,0 +1,13 @@
+.menu-guide{
+    .buttons{
+        button{
+            width: 100%;
+            text-align: left;
+            margin-top: 10px;;
+        }
+    }
+    .dashboard{
+        display: flex;
+        justify-content: space-between;
+    }
+}

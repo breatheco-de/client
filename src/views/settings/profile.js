@@ -1,41 +1,28 @@
-/** @jsx jsx */
-import { jsx, Text, Label, Flex, Box, Button, Input, Textarea, useThemeUI } from 'theme-ui'
+import React from "react"
+import { Row, Col, Form, Button } from 'react-bootstrap'
 import PanelView from '../../components/panel-view'
 import { useForm } from "react-hook-form"
 import Checkbox from '../../components/checkbox'
 
 const Profile = () => {
     const { register, handleSubmit, watch, errors } = useForm();
-    const { colorMode, setColorMode } = useThemeUI()
     const onSubmit = data => console.log("Form submited",data);
 
     return <PanelView heading="Profile Settings">
-        <Box
-        as='form'
-        onSubmit={handleSubmit(onSubmit)}>
-            <Flex mb={3}>
-                <Box>
-                    <Label htmlFor='first_name'>First Name</Label>
-                    <Input name='first_name' id='first_name' ref={register({ required: true })} />
-                    {errors.first_name && <Text color="danger">This field is required</Text>}
-                </Box>
-                <Box ml={3}>
-                    <Label htmlFor='last_name'>Last Name</Label>
-                    <Input name='last_name' id='last_name' ref={register({ required: true })} />
-                    {errors.last_name && <Text color="danger">This field is required</Text>}
-                </Box>
-            </Flex>
-            <Label htmlFor='comment'>About you (100 words to describe yourself)</Label>
-            <Textarea  ref={register({ required: true })}
-                name='comment'
-                id='comment'
-                rows='2'
-            />
-            {errors.comment && <Text color="danger">This field is required</Text>}
-            <Button mt={3}>Save</Button>
-            <Label htmlFor='comment'>Enable dark mode</Label>
-            <Checkbox onChange={() => setColorMode(colorMode === "light" ? "dark":"light")} />
-        </Box>
+        <Row>
+            <Col>
+                <Form.Label htmlFor='first_name'>First Name</Form.Label>
+                <Form.Control type="text" name='first_name' id='first_name' ref={register({ required: true })} />
+                {errors.first_name && <Form.Control.Feedback type="invalid">This field is required</Form.Control.Feedback>}
+            </Col>
+            <Col>
+                <Form.Label htmlFor='last_name'>Last Name</Form.Label>
+                <Form.Control type="text" name='last_name' id='last_name' ref={register({ required: true })} />
+                {errors.last_name && <Form.Control.Feedback type="invalid">This field is required</Form.Control.Feedback>}
+            </Col>
+        </Row>
+        <Form.Label htmlFor='comment'>About you (100 words to describe yourself)</Form.Label>
+        <Button mt={3}>Save</Button>
     </PanelView>
 }
 
