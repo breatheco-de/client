@@ -1,7 +1,7 @@
 import React from "react"
 import {Button} from "react-bootstrap"
 import styles from './style.scss';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const SmartButton = ({ children, variant }) => 
     <Button variant={`outline-${variant} shadow-one`} className={styles.btn}>{children} <span className={`arrow`}>→</span>

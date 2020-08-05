@@ -1,0 +1,19 @@
+.link-text{
+    width: 80%;
+    text-align: left;
+}
+.link-arrow{
+    width: 20%;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.styled-link{
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.styled-link:hover{
+    text-decoration: underline !important;
+}
+
