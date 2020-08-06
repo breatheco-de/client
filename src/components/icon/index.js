@@ -2,8 +2,8 @@ import React from "react"
 import PropTypes from 'prop-types'
 import { IconContext } from "react-icons"
 import { IoLogoGithub } from "react-icons/io"
-import { FcCollaboration, FcHome, FcGraduationCap, FcSettings, FcBriefcase, FcButtingIn } from "react-icons/fc"
-
+import { FcCollaboration, FcHome, FcGraduationCap, FcSettings, FcBriefcase, FcButtingIn } from "react-icons/fc";
+import { FiArrowRightCircle } from "react-icons/fi";
 export const icons = {
     'github': IoLogoGithub,
     'collaboration': FcCollaboration,
@@ -12,8 +12,10 @@ export const icons = {
     'settings': FcSettings,
     'profile': FcButtingIn,
     'briefcase': FcBriefcase,
+    'right-arrow': FiArrowRightCircle
 }
 export const sizes = {
+    xs: '90%',
     md: '130%',
     lg: '200%'
 }
