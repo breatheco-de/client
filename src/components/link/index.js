@@ -1,18 +1,24 @@
 import React from 'react';
 import "./style.scss";
-import {Link, BrowserRouter as Router} from "react-router-dom";
+import { Link } from "@reach/router"
 import PropTypes from 'prop-types';
 import Icon from "../icon";
 
 const SmartLink = ({className, to, url, color, children}) => {
     return (
-        <>
-            {
-                 url !== null ? <a className={`${className} text-${color} link-text styled-link`} target="_blank" rel="noopener noreferrer">{children}<span className="link-arrow"><Icon name='right-arrow' size='xs' color={color}/></span></a>:
-                 to !== null ? <Router><Link className={`${className} text-${color} link-text`}>{children}<span className="link-arrow"><Icon name='right-arrow' size='xs' color={color}/></span></Link></Router> :
-                 <a>Pass me a url or relative path</a>
+        <div className={`smart-link ${className} text-${color}`}>
+            {url ? 
+                <a target="_blank" rel="noopener noreferrer">
+                    {children}
+                    <Icon name='right-arrow' size='xs' color={color}/>
+                </a>
+                : to ? <Link to={to}>
+                        {children}
+                        <Icon name='right-arrow' size='xs' color={color}/>
+                    </Link> 
+                : <a>Error! Pass me a url or relative path</a>
             }
-        </>
+        </div>
     )
 }
 
