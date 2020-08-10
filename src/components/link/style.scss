@@ -1,17 +1,24 @@
 .smart-link{
-    width: 80%;
     text-align: left;
     i, svg{
         margin-left: 10px;
         margin-right: 5px;
     }
-    a{
+        a{
         text-decoration: none;
         background-color: transparent;
+        width: 100%;
     }
     a:hover{
         cursor: pointer;
         text-decoration: underline !important;
+    }
+
+    img{
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 10px
     }
 }
 

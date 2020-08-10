@@ -1,5 +1,5 @@
 import React from "react"
-import {Button} from "react-bootstrap"
+import {Button} from "react-bootstrap";
 import styles from './style.scss';
 import PropTypes from 'prop-types';
 
