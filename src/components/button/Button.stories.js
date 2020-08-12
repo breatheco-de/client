@@ -20,4 +20,6 @@ export const actionsData = {
   onChange: action('onChange'),
 };
 
-export const Default = () => <Button { ...taskData } {...actionsData}>Click me</Button>;
+export const Default = () => <Button { ...taskData } {...actionsData} arrow={true}>Click me</Button>;
+export const withImg = () => <Button { ...taskData } {...actionsData} imgSrc={"https://www.pngkit.com/png/detail/5-53915_free-png-happy-black-person-png-images-transparent.png"}>Jhonson Smith</Button>;
+export const withImgAndSub = () => <Button { ...taskData } {...actionsData} imgSrc={"https://www.pngkit.com/png/detail/5-53915_free-png-happy-black-person-png-images-transparent.png"} sub={"Principal"} >Jhonson Smith </Button>;
