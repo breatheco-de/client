@@ -1,44 +1,45 @@
 .btn{
-    .arrow{
-        float: right;
-        margin-left: 10px;
-    }
-}
-
-.img-button{
-    text-align: justify;
-    img{
-        width: 40px;
-        height: auto;
-        margin-right: 10px;
-        border-radius: 50px;
-        display: inline-block;
-        vertical-align: middle;
-    }
-    .btn{
-        color: #fff; 
-        background-color: transparent !important;
-        border-color: transparent !important;
-    }
-    span{
-        display: inline-block;
-        vertical-align: middle;
-    }
-}
-
-.sub{
+    text-align: left;
     display: flex;
-    div{
-        display: grid;
+    label{
+      margin-bottom: auto;
+      margin-top: auto;
+      margin-right: 10px;
     }
-    div span:nth-child(1){
-    font-size: 12px;
+    img{
+        width: 50px;
+        height: auto;
+        border-radius: 50px;
+        margin-right: 10px;
+        margin-bottom: auto;
+        margin-top: auto;
     }
-    div span:nth-child(2) {
-     width: fit-content;
-     padding: 2px;
-     border-radius: 3px;
-     background: #F2F2F2;
-     font-size: 10px
+    svg{
+        float: right;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
     }
+    .hover-layer{
+        display: none;
+    }
+    &:hover{
+        .hover-layer{
+            display: initial;
+        }
+    }
+    .button-section {
+        margin-right: 10px;
+        .badge-pill{
+          margin-right: 5px;
+        }
+    }
+    .button-label{
+        display: block;
+    } 
+    .badge-pill{
+        width: fit-content;
+        }
 }
+
+

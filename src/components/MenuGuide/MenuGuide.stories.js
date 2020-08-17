@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions'
 import MenuGuide from './index'
 import Button from '../button'
-import { Badge } from "react-bootstrap"
+import { Badge } from "react-bootstrap";
 import Indicator from '../Indicator'
 
 export default {

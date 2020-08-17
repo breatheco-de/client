@@ -1,46 +1,48 @@
-import React from "react"
+import React,{useState, useEffect} from "react"
 import { Button } from "react-bootstrap";
+import Icon from "../icon";
+import { Link } from "@reach/router";
 import styles from './style.scss';
 import PropTypes from 'prop-types';
 
-const SmartButton = ({ children, variant, imgSrc, sub, arrow, subBackground, onClick }) => {
-    
-    if (sub) {
-        return (
-            <button className={`outline-${variant} img-button btn shadow-one sub`} onClick={onClick}>
-                {imgSrc ? <img src={imgSrc} alt="..." />: ""}
-                <div>
-                    <span>{children}</span>
-                    <span className={`bg-${subBackground}`}>{sub}</span>
-                </div>
-                {arrow ? <span className={`arrow`}>→</span> : ""}
-            </button>)
-    } else {
-        return (
-            <Button variant={`outline-${variant} shadow-one btn ${imgSrc ? "img-button": ""}`} onClick={onClick}>
-                {imgSrc ? <img src={imgSrc} alt="..." />: ""}
-                {children} {arrow ? <span className={`arrow`}>→</span> : ""}
-            </Button>)
-    }
+const SmartButton = ({ children, variant, onClick, icon, to }) => {
+     
+     return(
+         <>
+             {
+                 to ? 
+                      <Link to={to} className={`outline-${variant} shadow-one btn`}>
+                          {children}
+                        <Icon name={icon} size='md' color={variant}/>
+                      </Link> 
+                   :
+                 <Button variant={`outline-${variant} shadow-one btn`} onClick={onClick}>
+                    {children}
+                    <Icon name={icon} size='md' color={variant}/>
+                </Button> 
+             }
+         </>
+        
+    )
 }
+
+SmartButton.HoverLayer = ({children}) => <div className="hover-layer">{children}</div>
+SmartButton.Label = ({children}) => <label className="button-label">{children}</label>
+SmartButton.Section = ({children}) => <div className="button-section">{children}</div>
 
 SmartButton.propTypes = {
     variant: PropTypes.string,
     children: PropTypes.node,
-    imgSrc: PropTypes.string,
-    sub: PropTypes.string,
-    arrow: PropTypes.bool,
-    subBackground: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    icon: PropTypes.string,
+    to: PropTypes.string
 };
 
 SmartButton.defaultProps = {
     variant: 'primary',
     children: null,
-    imgSrc: "",
-    sub: "",
-    arrow: false,
-    subBackground: ""
+    icon: "arrow",
+    to:null
 };
 
 export default SmartButton;

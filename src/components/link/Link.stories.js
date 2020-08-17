@@ -16,6 +16,4 @@ export const taskData = {
   associated_slug: 'react',
 };
 
-export const Default = () => <Link { ...taskData } url="/#" >Click me</Link>;
-export const typeButton = () => <Link { ...taskData } url="/#" type="button" >Click me</Link>;
-export const typeButtonWithImg = () => <Link { ...taskData } url="/#" type="button" imgSrc="https://www.pngkit.com/png/detail/5-53915_free-png-happy-black-person-png-images-transparent.png" sub="Primary" subBackground="primary">Jhonson Smith</Link>;
+export const Default = () => <Link { ...taskData } url="/#" >Click me </Link>;

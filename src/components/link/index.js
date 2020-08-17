@@ -4,32 +4,7 @@ import { Link } from "@reach/router"
 import PropTypes from 'prop-types';
 import Icon from "../icon";
 
-const SmartLink = ({ className, to, url, color, children, type, imgSrc, subBackground, sub, arrow }) => {
-    if (type === "button") {
-        return (
-            <div className={`${className} text-${color} `}>
-                {url ?
-                    <a target="_blank" rel="noopener noreferrer" href={url} className={`btn shadow-one smart-link ${sub ? "sub":""}`}>
-                        {imgSrc ? <img src={imgSrc} alt="..." /> : ""}
-                        {sub ? <div>
-                                    <span>{children}</span>
-                                    <span className={`bg-${subBackground}`}>{sub}</span>
-                                </div> : children}
-                        {arrow ? <span className={`arrow`}>→</span> : ""}
-                    </a>
-                    : to ? <Link to={to} className={`btn shadow-one smart-link ${sub ? "sub":""}`}>
-                        {imgSrc ? <img src={imgSrc} alt="..." /> : ""}
-                        {sub ? <div>
-                                    <span>{children}</span>
-                                    <span className={`bg-${subBackground}`}>{sub}</span>
-                                </div> : children}
-                        {arrow ? <span className={`arrow`}>→</span> : ""}
-                    </Link>
-                        : <a>Error! Pass me a url or relative path</a>
-                }
-            </div>
-        )
-    } else {
+const SmartLink = ({ className, to, url, color, children }) => {
         return (
             <div className={`smart-link ${className} text-${color}`}>
                 {url ?
@@ -45,8 +20,6 @@ const SmartLink = ({ className, to, url, color, children, type, imgSrc, subBackg
                 }
             </div>
         )
-    }
-
 }
 
 SmartLink.propTypes = {

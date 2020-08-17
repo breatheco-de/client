@@ -4,6 +4,7 @@ import { IconContext } from "react-icons"
 import { IoLogoGithub } from "react-icons/io"
 import { FcCollaboration, FcHome, FcGraduationCap, FcSettings, FcBriefcase, FcButtingIn } from "react-icons/fc";
 import { FiArrowRightCircle } from "react-icons/fi";
+import { BsArrowRight } from "react-icons/bs";
 export const icons = {
     'github': IoLogoGithub,
     'collaboration': FcCollaboration,
@@ -12,7 +13,8 @@ export const icons = {
     'settings': FcSettings,
     'profile': FcButtingIn,
     'briefcase': FcBriefcase,
-    'right-arrow': FiArrowRightCircle
+    'right-arrow': FiArrowRightCircle,
+    'arrow': BsArrowRight
 }
 export const sizes = {
     xs: '90%',
