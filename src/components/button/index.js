@@ -11,14 +11,14 @@ const SmartButton = ({ children, variant, onClick, icon, to }) => {
          <>
              {
                  to ? 
-                      <Link to={to} className={`outline-${variant} shadow-one btn`}>
+                      <Link to={to} className={`btn-outline-${variant} shadow-one btn`}>
                           {children}
-                        <Icon name={icon} size='md' color={variant}/>
+                        <Icon name={icon} size='md' />
                       </Link> 
                    :
                  <Button variant={`outline-${variant} shadow-one btn`} onClick={onClick}>
                     {children}
-                    <Icon name={icon} size='md' color={variant}/>
+                    <Icon name={icon} size='md' />
                 </Button> 
              }
          </>
