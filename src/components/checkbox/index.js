@@ -47,12 +47,12 @@ const StyledCheckBox = styled.input`
   }
 `
 
-const Checkbox = ({ style, checked, onChange }) => {
+const Checkbox = ({ style, checked, onChange, children }) => {
     
     return <Wrapper style={style}>
         <CheckBoxWrapper>
             <StyledCheckBox  id="checkbox" type="checkbox" onChange={() => onChange && onChange(!checked)} />
-            <CheckBoxLabel htmlFor="checkbox" />
+            <CheckBoxLabel htmlFor="checkbox">{children}</CheckBoxLabel>
         </CheckBoxWrapper>
     </Wrapper>
 }
