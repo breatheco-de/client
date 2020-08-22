@@ -11,7 +11,7 @@ const SmartButton = ({ children, variant, onClick, icon, to, className }) => {
          <>
              {
                  to ? 
-                    <Link to={to} className={`btn-outline-${variant} shadow-one btn`}>
+                    <Link to={to} className={`btn-outline-${variant} shadow-one btn ${className}`}>
                           {children}
                         <Icon name={icon} size='md' />
                     </Link> 
@@ -26,9 +26,9 @@ const SmartButton = ({ children, variant, onClick, icon, to, className }) => {
     )
 }
 
-SmartButton.HoverLayer = ({children, className}) => <div className={`hover-layer ${className}`}>{children}</div>
-SmartButton.Label = ({children, icon, className}) => <>{icon ? <div className="label-content"><div><Icon name={icon} size='md' /></div><label>{children}</label></div> : <label className="button-label">{children}</label>}</>
-SmartButton.Section = ({children, className}) => <div className={`button-section ${className}`}>{children}</div>
+SmartButton.HoverLayer = ({children, variant}) => <div className={`hover-layer ${variant}`}>{children}</div>
+SmartButton.Label = ({children, icon, variant}) => <>{icon ? <div className={`label-content ${variant}`}><div><Icon name={icon} size='md' /></div><label>{children}</label></div> : <label className={`button-label ${variant}`}>{children}</label>}</>
+SmartButton.Section = ({children, variant}) => <div className={`button-section ${variant}`}>{children}</div>
 
 SmartButton.propTypes = {
     variant: PropTypes.string,
@@ -40,7 +40,7 @@ SmartButton.propTypes = {
 };
 
 SmartButton.defaultProps = {
-    variant: 'primary',
+    variant: 'primary-light',
     children: null,
     icon: "arrow",
     to:null,

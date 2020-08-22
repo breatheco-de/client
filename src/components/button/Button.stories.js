@@ -22,23 +22,18 @@ export const actionsData = {
 };
 
 export const Default = () => <Button {...taskData} {...actionsData} icon="arrow" >
-        <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"/>
-        <Button.Section>
           <Button.Label>Click me</Button.Label>
-          <Badge className="badge-pill" variant="light">Primary</Badge>
-          <Badge className="badge-pill" variant="light">Primary</Badge> 
-        </Button.Section>
 </Button>;
 export const withLink = () => <Button {...taskData} {...actionsData} to="/#">
         <Button.Label>Click me</Button.Label>
 </Button>;
-export const HoverLayer = () => <Button {...taskData} {...actionsData}  icon="arrow" className="p-3">
+export const HoverLayer = () => <Button {...taskData} {...actionsData}  icon="arrow" className="p-2">
     <Button.Section>
         <Button.Label >Click me</Button.Label>
         <Button.Label>Day - 2 Instragram post</Button.Label>
     </Button.Section>
     <Button.HoverLayer >
-        <Button.Label icon="academy">mark as done</Button.Label>
-        <Button.Label icon="arrow">view details</Button.Label>
+        <Button.Label icon="academy" variant="bg-danger-light">mark as done</Button.Label>
+        <Button.Label icon="arrow" variant="bg-secondary-light">view details</Button.Label>
     </Button.HoverLayer>
 </Button>;

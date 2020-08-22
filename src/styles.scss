@@ -1,6 +1,13 @@
 $theme-colors: (
     "primary": #4285ff,
-    "primary-light": #E3F2FF
+    "primary-light": #E3F2FF,
+    "bg-primary-light": #E3F2FF,
+    "success-light":#F2FFF8,
+    "bg-success-light":#F2FFF8,
+    "secondary-light":#F5F5F5,
+    "bg-secondary-light":#F5F5F5,
+    "danger-light": #FFE4E4,
+    "bg-danger-light":#FFE4E4
 );
 
 @import "~bootstrap/scss/bootstrap";

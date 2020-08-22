@@ -21,7 +21,6 @@ const SmartLink = ({ className, to, url, color, children }) => {
             </div>
         )
 }
-
 SmartLink.propTypes = {
     className: PropTypes.string,
     to: PropTypes.string,
@@ -34,7 +33,6 @@ SmartLink.propTypes = {
     sub: PropTypes.string,
     arrow: PropTypes.bool
 };
-
 SmartLink.defaultProps = {
     className: "",
     to: null,
