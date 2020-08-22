@@ -1,46 +1,101 @@
 .btn{
-    text-align: left;
     display: flex;
+    position: relative;
+    text-align: left;
     label{
       margin-bottom: auto;
       margin-top: auto;
       margin-right: 10px;
+      font-size: 12px;
     }
-    img{
-        width: 50px;
+    img, svg:not(.icon){
+        width: 40px;
         height: auto;
         border-radius: 50px;
         margin-right: 10px;
         margin-bottom: auto;
         margin-top: auto;
     }
-    svg{
+    .icon{
         float: right;
         margin-top: auto;
         margin-bottom: auto;
         margin-left: auto;
     }
     .hover-layer{
-        display: none;
+        display: flex;
+        position: absolute;
+        visibility: hidden;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width:30%;
+        label{
+            margin: 0; 
+        }
+        .label-content{
+            div{
+                text-align: center;
+            }
+        }
+            div:last-child{
+            background: #F5F5F5;
+            border-bottom-right-radius: 2px;
+            border-top-right-radius: 2px;
+        }
     }
     &:hover{
         .hover-layer{
-            display: initial;
+            display: flex;
+            visibility: visible;
+            .button-label{
+                    display: block;
+                    width: min-content;
+                    padding: 3px;
+                    text-align: center;
+                    background: #F2FFF8;
+            }
         }
     }
     .button-section {
-        margin-right: 10px;
         .badge-pill{
           margin-right: 5px;
+        }
+        margin-bottom: auto;
+        margin-top: auto;
+        label:last-child{
+            font-size:10px;
+            font-weight: 100;
+        }
+        .button-label{
+            font-size:15px;
+            font-weight: 600;
         }
     }
     .button-label{
         display: block;
+        margin-left: 10px;
     } 
     .badge-pill{
         width: fit-content;
+        font-size: 10px;
         }
     
+    .label-content{
+        display: block;
+        font-size: 9px;
+        height: 100%;
+        background: #F2FFF8;
+        label{
+            text-align: center;
+            margin-bottom: 2px;
+        }
+        svg{
+            float:none;
+            font-size: 20px !important;
+            margin-top: 2px;
+        }
+    }
 }
 
 
