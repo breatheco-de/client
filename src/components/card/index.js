@@ -5,9 +5,12 @@ import PropTypes from 'prop-types';
 import { Card } from "react-bootstrap";
 import { Link } from "@reach/router";
 
-const SmartCard = ({className,variant,children,icon,to,onClick}) => {
+const SmartCard = ({className,variant,children,icon,onClick}) => {
     return (
-            <Card className={`shadow-one smart-card ${className} ${variant || ""} ${onClick ? "click":""}`} onClick={onClick}>
+            <Card className={`shadow-one smart-card ${className} ${variant || ""} ${onClick ? "click":""}`} 
+                  onClick={onClick} 
+                  bg={variant.toLowerCase()} 
+                  text={variant.toLowerCase() === 'dark' ? 'light' : 'dark'}>
                  {children}
                 <Icon name={icon} size='md' />
             </Card>
@@ -29,7 +32,7 @@ SmartCard.propTypes = {
 }
 
 SmartCard.defaultProps = {
-    variant: 'primary-light',
+    variant: '',
     children: null,
     icon: "arrow",
     to:null,

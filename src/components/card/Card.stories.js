@@ -33,7 +33,7 @@ export const Default = () => <Card >
 
 export const Grid = () => <div className="row">
    <div className="col-3">
-<Card >
+<Card variant="dark" >
     <Card.Img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2842%29.jpg" variant="top" />
             <Card.Body>
                 <Card.Title>Instagram Post</Card.Title>
@@ -44,7 +44,7 @@ export const Grid = () => <div className="row">
 </Card>
 </div>
 <div className="col-3">
-<Card >
+<Card variant="danger" >
     <Card.Img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2842%29.jpg" variant="top" />
             <Card.Body>
                 <Card.Title>Instagram Post</Card.Title>
@@ -55,7 +55,7 @@ export const Grid = () => <div className="row">
 </Card>
 </div>
 <div className="col-3">
-<Card >
+<Card variant="success">
     <Card.Img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2842%29.jpg" variant="top" />
             <Card.Body>
                 <Card.Title>Instagram Post</Card.Title>
@@ -66,7 +66,7 @@ export const Grid = () => <div className="row">
 </Card>
 </div>
 <div className="col-3">
-<Card >
+<Card variant="primary-light">
     <Card.Img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%2842%29.jpg" variant="top" />
             <Card.Body>
                 <Card.Title>Instagram Post</Card.Title>
