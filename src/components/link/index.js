@@ -10,11 +10,11 @@ const SmartLink = ({ className, to, url, color, children }) => {
                 {url ?
                     <a target="_blank" rel="noopener noreferrer" href={url}>
                         {children}
-                        <Icon name='right-arrow' size='xs' color={color} />
+                        <Icon name='arrow-right' size='xs' color={color} />
                     </a>
                     : to ? <Link to={to}>
                         {children}
-                        <Icon name='right-arrow' size='xs' color={color} />
+                        <Icon name='arrow-right' size='xs' color={color} />
                     </Link>
                         : <a>Error! Pass me a url or relative path</a>
                 }
