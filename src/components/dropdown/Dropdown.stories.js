@@ -20,5 +20,10 @@ export const actionsData = {
     onChange: action('onChange'),
 };
 
-export const Default = () => <Dropdown />
+const options = [{ label: "Javascript", value: "javascript" }, { label: "Python", value: "python" }, { label: "React", value: "react" }, { label: "Bootstrap", value: "bootstrap" }, { label: "Html", value: "html" }, { label: "CSS", value: "css" }]
+
+export const Default = () => <Dropdown
+                                       options={options}
+                                       name="form-field-name"
+                                       placeholder="Select your favorite"/>
 
