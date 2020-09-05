@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import Button from './index';
 import '../../styles.scss';
 import { Badge } from "react-bootstrap";
-import {withKnobs, text, select} from '@storybook/addon-knobs';
+import {withKnobs, text, select,number} from '@storybook/addon-knobs';
 import {icons} from "../icon/index";
 
 export default {
