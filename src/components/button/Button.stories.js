@@ -36,13 +36,13 @@ export const Default = () => <Button {...taskData} {...actionsData} icon={select
 export const withLink = () => <Button {...taskData} {...actionsData} icon={select("Icon", options, "arrow")} to="/#" variant={select("Button variant", variants, "primary")} style={{width:text("Button Width", "30%"), padding:text("Button Padding", "10px") }}>
         <Button.Label>{text("Label", "Click me")}</Button.Label>
 </Button>;
-export const HoverLayer = () => <Button {...taskData} {...actionsData}  icon={select("Icon", options, "arrow")} style={{width:text("Button Width", "30%"), padding:text("Button Padding", "10px") }} variant={select("Button Variant", variants, "primary")}>
+export const HoverLayer = () => <Button {...taskData} {...actionsData}  icon={select("Icon", options, "arrow")} style={{width:text("Button Width", "30%"), padding:text("Button Padding", "10px") }} variant={select("Button Variant", variants, "primary")} onHover={false}>
     <Button.Section>
         <Button.Label >{text("Label", "Click me")}</Button.Label>
         <Button.Label>{text("Secondary Label", "Smaller title description")}</Button.Label>
     </Button.Section>
     <Button.HoverLayer >
-        <Button.Label icon={select("Icon hover 1st Element", options, "check-mark")}  variant={`bg-${select("Hover Label 1st Variant", variants, "success-light")}`}>{text("Hover Label 1st", "mark as done")}</Button.Label>
-        <Button.Label icon={select("Icon hover 2nd Element", options, "arrow")} variant={`bg-${select("Hover Label 2nd Variant", variants, "secondary-light")}`}>{text("Hover Label 2nd", "view details")}</Button.Label>
+        <Button.Label icon={select("Icon hover 1st Element", options, "check-mark")}  variant={`bg-${select("Hover Label 1st Variant", variants, "success-light")}`} onClick={() => alert("first")}>{text("Hover Label 1st", "mark as done")}</Button.Label>
+        <Button.Label icon={select("Icon hover 2nd Element", options, "arrow")} variant={`bg-${select("Hover Label 2nd Variant", variants, "secondary-light")}`} onClick={() => alert("second")}>{text("Hover Label 2nd", "view details")}</Button.Label>
     </Button.HoverLayer>
 </Button>;
