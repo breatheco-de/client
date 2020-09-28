@@ -16,6 +16,4 @@ export const taskData = {
   associated_slug: 'react',
 };
 
-
-
-export const Default = () => <Link { ...taskData } url="/#" >Click me because i am a large button and i deserve it</Link>;
+export const Default = () => <Link { ...taskData } url="/#" >Click me </Link>;

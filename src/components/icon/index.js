@@ -2,8 +2,9 @@ import React from "react"
 import PropTypes from 'prop-types'
 import { IconContext } from "react-icons"
 import { IoLogoGithub } from "react-icons/io"
-import { FcCollaboration, FcHome, FcGraduationCap, FcSettings, FcBriefcase, FcButtingIn } from "react-icons/fc";
+import { FcCollaboration, FcHome, FcGraduationCap, FcSettings, FcBriefcase, FcButtingIn, FcCheckmark } from "react-icons/fc";
 import { FiArrowRightCircle } from "react-icons/fi";
+import { BsArrowRight,BsArrowDown } from "react-icons/bs";
 export const icons = {
     'github': IoLogoGithub,
     'collaboration': FcCollaboration,
@@ -12,7 +13,10 @@ export const icons = {
     'settings': FcSettings,
     'profile': FcButtingIn,
     'briefcase': FcBriefcase,
-    'right-arrow': FiArrowRightCircle
+    'arrow-right': FiArrowRightCircle,
+    'arrow': BsArrowRight,
+    'check-mark': FcCheckmark,
+    "arrow-down": BsArrowDown
 }
 export const sizes = {
     xs: '90%',
@@ -25,7 +29,7 @@ const Icon = ({ name, size, color, ...rest }) => {
     if(icons[name] === undefined) return "?";
 
     const TheIcon = icons[name]
-    return <IconContext.Provider value={{ color, className: "global-class-name" }}>
+    return <IconContext.Provider value={{ color, className: "icon" }}>
     <>
         <TheIcon {...rest} style={{ fontSize: sizes[size] }}  />
     </>
